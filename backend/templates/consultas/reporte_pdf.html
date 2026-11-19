@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{{ rep.titulo }}</title>
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 1.5cm;
+    }
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 9pt;
+      color: #1f2937;
+    }
+    .header-table {
+      width: 100%;
+      border-bottom: 2px solid #1e3a8a;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+    }
+    .brand {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #1e3a8a;
+    }
+    .subtitle {
+      font-size: 8.5pt;
+      color: #4b5563;
+    }
+    .meta-box {
+      background-color: #f3f4f6;
+      border: 1px solid #d1d5db;
+      padding: 6px 10px;
+      margin-bottom: 12px;
+      font-size: 8.5pt;
+    }
+    h2 {
+      font-size: 12pt;
+      color: #111827;
+      margin: 4px 0 6px 0;
+    }
+    h3 {
+      font-size: 10pt;
+      color: #1e3a8a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 3px;
+      margin-top: 14px;
+    }
+    table.datos {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 8pt;
+    }
+    table.datos th {
+      background-color: #1e3a8a;
+      color: #ffffff;
+      font-weight: bold;
+      text-align: left;
+      padding: 5px 6px;
+      border: 1px solid #1e3a8a;
+    }
+    table.datos td {
+      padding: 4px 6px;
+      border: 1px solid #d1d5db;
+    }
+    table.datos tr:nth-child(even) td {
+      background-color: #f9fafb;
+    }
+    .chart-block {
+      text-align: center;
+      margin: 10px 0 14px 0;
+      page-break-inside: avoid;
+    }
+    .chart-title {
+      font-weight: bold;
+      font-size: 9pt;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+    .chart-img {
+      width: 470px;
+      border: 1px solid #e5e7eb;
+    }
+    .footer-note {
+      margin-top: 18px;
+      padding-top: 6px;
+      border-top: 1px solid #d1d5db;
+      font-size: 7.5pt;
+      color: #6b7280;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <table class="header-table">
+    <tr>
+      <td>
+        <div class="brand">ENTRECOL PLUS S.A.S.</div>
+        <div class="subtitle">Sistema Integrado de Información Gerencial · Módulo: {{ rep.modulo }}</div>
+      </td>
+      <td style="text-align: right; font-size: 8pt; color: #4b5563;">
+        <strong>Fecha:</strong> {{ fecha_generacion }}<br>
+        <strong>Generado por:</strong> {{ generado_por }}
+      </td>
+    </tr>
+  </table>
+
+  <h2>{{ rep.titulo }}</h2>
+  {% if rep.descripcion %}
+    <div class="subtitle" style="margin-bottom: 8px;">{{ rep.descripcion }}</div>
+  {% endif %}
+
+  <div class="meta-box">
+    <strong>Parámetros aplicados:</strong>
+    {% set ns = namespace(alguno=false) %}
+    {% for k, v in valores.items() %}
+      {% if v %}
+        {% set ns.alguno = true %}
+        <span>[{{ k }}: {{ v }}]</span>&nbsp;
+      {% endif %}
+    {% endfor %}
+    {% if not ns.alguno %}<span>Todos los registros (sin filtros restrictivos)</span>{% endif %}
+    &nbsp;|&nbsp;<strong>Total registros:</strong> {{ filas | length }}
+  </div>
+
+  {% if filas %}
+  <h3>1. Detalle de Resultados</h3>
+  <table class="datos" repeat="1">
+    <thead>
+      <tr>
+        {% for c in columnas %}
+          <th>{{ c }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in filas %}
+      <tr>
+        {% for c in columnas %}
+          <td>{{ f[c] | celda }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {% if charts %}
+  <h3>2. Análisis Gráfico Estadístico</h3>
+  {% for ch in charts %}
+    <div class="chart-block">
+      <div class="chart-title">{{ ch.titulo }}</div>
+      <img class="chart-img" src="data:image/png;base64,{{ ch.img }}" alt="{{ ch.titulo }}">
+    </div>
+  {% endfor %}
+  {% endif %}
+
+  <div class="footer-note">
+    Documento generado por ENTRECOL PLUS S.A.S. · {{ fecha_generacion }}
+  </div>
+</body>
+</html>

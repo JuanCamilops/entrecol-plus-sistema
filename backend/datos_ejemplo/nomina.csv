@@ -1,0 +1,121 @@
+codigo,nombre_completo,fecha_ingreso,sueldo,dependencia,cargo,eps,fondo_pension,arl,anio,mes,dias_trabajados,bonificacion,transporte
+E001,Carlos Martínez López,2022-02-06,5500000,Contabilidad,Contador,Salud Total,Porvenir,Positiva,2026,1,30,300000,0
+E002,Miguel Martínez Moreno,2019-01-07,5500000,Talento Humano,Analista de nómina,Salud Total,Skandia,ARL Sura,2026,1,28,300000,0
+E003,Luisa Rodríguez Ramírez,2018-07-23,2800000,Operaciones,Jefe de operaciones,Sanitas,Porvenir,Positiva,2026,1,30,0,200000
+E004,Jorge López Vargas,2024-04-13,2200000,Contabilidad,Auxiliar contable,Famisanar,Protección,ARL Sura,2026,1,30,0,200000
+E005,Andrés Martínez Rodríguez,2020-04-23,4200000,Operaciones,Jefe de operaciones,Compensar,Colpensiones,Seguros Bolívar,2026,1,30,0,0
+E006,Sebastián Vargas Moreno,2020-01-07,7000000,Contabilidad,Auxiliar contable,Famisanar,Protección,ARL Sura,2026,1,30,0,0
+E007,Mariana Torres Vargas,2024-10-30,7000000,Operaciones,Auxiliar logístico,Sura EPS,Porvenir,Seguros Bolívar,2026,1,30,0,0
+E008,David Suárez Rodríguez,2018-11-14,2200000,Tecnología,Administrador de bases de datos,Salud Total,Colpensiones,Colmena,2026,1,20,0,200000
+E009,Luisa Torres Martínez,2019-01-19,7000000,Contabilidad,Auxiliar contable,Nueva EPS,Skandia,ARL Sura,2026,1,30,0,0
+E010,Felipe Ramírez Ortiz,2018-04-03,7000000,Talento Humano,Coordinador de talento humano,Compensar,Colfondos,Positiva,2026,1,25,0,0
+E011,Carlos Díaz Vargas,2019-06-14,7000000,Operaciones,Jefe de operaciones,Famisanar,Protección,Seguros Bolívar,2026,1,30,0,0
+E012,Santiago Torres Ramírez,2024-02-29,1800000,Comercial,Asesor de ventas,Nueva EPS,Protección,Seguros Bolívar,2026,1,30,150000,200000
+E013,Sebastián Ramírez Moreno,2019-09-11,5500000,Operaciones,Auxiliar logístico,Sura EPS,Protección,Positiva,2026,1,30,0,0
+E014,Ana Pardo Hernández,2020-12-12,2800000,Tecnología,Soporte técnico,Nueva EPS,Porvenir,Positiva,2026,1,28,150000,200000
+E015,Valentina Rodríguez Torres,2024-04-09,4200000,Comercial,Asesor de ventas,Compensar,Skandia,Seguros Bolívar,2026,1,30,300000,0
+E016,Paula Rodríguez Díaz,2018-10-03,7000000,Comercial,Ejecutivo comercial,Sanitas,Skandia,Positiva,2026,1,30,0,0
+E017,Andrés Gómez García,2024-01-07,1423500,Talento Humano,Coordinador de talento humano,Sura EPS,Colfondos,ARL Sura,2026,1,28,0,200000
+E018,Valentina Rojas Ortiz,2024-10-02,5500000,Talento Humano,Analista de nómina,Nueva EPS,Skandia,ARL Sura,2026,1,30,0,0
+E019,David Pardo Vargas,2018-12-18,7000000,Talento Humano,Coordinador de talento humano,Sanitas,Porvenir,Colmena,2026,1,30,0,0
+E020,Sara Gómez Díaz,2023-12-04,2200000,Contabilidad,Auxiliar contable,Nueva EPS,Protección,ARL Sura,2026,1,30,0,200000
+E021,Daniela Ortiz Hernández,2021-12-27,1800000,Operaciones,Auxiliar logístico,Sanitas,Colpensiones,Colmena,2026,1,30,0,200000
+E022,Juan Ramírez Moreno,2020-03-29,2800000,Tecnología,Soporte técnico,Salud Total,Skandia,Colmena,2026,1,28,0,200000
+E023,David Rojas Díaz,2024-10-14,3500000,Talento Humano,Analista de nómina,Nueva EPS,Skandia,Colmena,2026,1,30,150000,0
+E024,Andrés Moreno Pardo,2020-03-16,2800000,Contabilidad,Contador,Nueva EPS,Protección,Seguros Bolívar,2026,1,28,0,200000
+E025,Sebastián Martínez López,2022-05-11,7000000,Operaciones,Jefe de operaciones,Famisanar,Protección,Seguros Bolívar,2026,1,30,0,0
+E026,Laura Ramírez Torres,2022-07-03,4200000,Tecnología,Administrador de bases de datos,Famisanar,Porvenir,Positiva,2026,1,30,0,0
+E027,Valentina Torres García,2024-09-06,1423500,Tecnología,Desarrollador,Compensar,Colfondos,Positiva,2026,1,30,0,200000
+E028,Ana López García,2022-11-12,1423500,Operaciones,Jefe de operaciones,Sanitas,Protección,ARL Sura,2026,1,30,300000,200000
+E029,Sara Moreno Castro,2020-11-28,3500000,Contabilidad,Contador,Salud Total,Skandia,Positiva,2026,1,28,0,0
+E030,Luisa Suárez García,2023-12-19,7000000,Talento Humano,Coordinador de talento humano,Sanitas,Colpensiones,ARL Sura,2026,1,28,150000,0
+E031,Valentina Hernández García,2023-04-24,1423500,Comercial,Ejecutivo comercial,Salud Total,Porvenir,ARL Sura,2026,1,30,150000,200000
+E032,Jorge Rodríguez Moreno,2020-02-23,1800000,Contabilidad,Auxiliar contable,Nueva EPS,Porvenir,ARL Sura,2026,1,30,150000,200000
+E033,Laura Torres Castro,2023-09-02,1423500,Operaciones,Auxiliar logístico,Salud Total,Colpensiones,Positiva,2026,1,20,150000,200000
+E034,Sara Moreno Rojas,2024-04-10,7000000,Contabilidad,Auxiliar contable,Sanitas,Skandia,Positiva,2026,1,28,150000,0
+E035,Natalia Castro Martínez,2020-09-12,5500000,Comercial,Ejecutivo comercial,Compensar,Porvenir,Positiva,2026,1,28,0,0
+E036,Sebastián García Rojas,2019-07-17,2200000,Contabilidad,Contador,Compensar,Protección,ARL Sura,2026,1,30,0,200000
+E037,Juan Hernández Suárez,2023-10-13,2200000,Comercial,Asesor de ventas,Compensar,Colfondos,Seguros Bolívar,2026,1,30,0,200000
+E038,Laura Ortiz Gómez,2021-10-16,4200000,Tecnología,Administrador de bases de datos,Salud Total,Skandia,Seguros Bolívar,2026,1,20,0,0
+E039,Sara Vargas Martínez,2019-04-08,4200000,Talento Humano,Coordinador de talento humano,Sanitas,Porvenir,ARL Sura,2026,1,30,0,0
+E040,Santiago Rojas García,2022-09-26,1423500,Contabilidad,Auxiliar contable,Famisanar,Colfondos,Seguros Bolívar,2026,1,30,0,200000
+E001,Carlos Martínez López,2022-02-06,5500000,Contabilidad,Contador,Salud Total,Porvenir,Positiva,2026,2,30,0,0
+E002,Miguel Martínez Moreno,2019-01-07,5500000,Talento Humano,Analista de nómina,Salud Total,Skandia,ARL Sura,2026,2,20,0,0
+E003,Luisa Rodríguez Ramírez,2018-07-23,2800000,Operaciones,Jefe de operaciones,Sanitas,Porvenir,Positiva,2026,2,30,0,200000
+E004,Jorge López Vargas,2024-04-13,2200000,Contabilidad,Auxiliar contable,Famisanar,Protección,ARL Sura,2026,2,30,0,200000
+E005,Andrés Martínez Rodríguez,2020-04-23,4200000,Operaciones,Jefe de operaciones,Compensar,Colpensiones,Seguros Bolívar,2026,2,20,150000,0
+E006,Sebastián Vargas Moreno,2020-01-07,7000000,Contabilidad,Auxiliar contable,Famisanar,Protección,ARL Sura,2026,2,28,0,0
+E007,Mariana Torres Vargas,2024-10-30,7000000,Operaciones,Auxiliar logístico,Sura EPS,Porvenir,Seguros Bolívar,2026,2,25,0,0
+E008,David Suárez Rodríguez,2018-11-14,2200000,Tecnología,Administrador de bases de datos,Salud Total,Colpensiones,Colmena,2026,2,30,0,200000
+E009,Luisa Torres Martínez,2019-01-19,7000000,Contabilidad,Auxiliar contable,Nueva EPS,Skandia,ARL Sura,2026,2,30,0,0
+E010,Felipe Ramírez Ortiz,2018-04-03,7000000,Talento Humano,Coordinador de talento humano,Compensar,Colfondos,Positiva,2026,2,30,0,0
+E011,Carlos Díaz Vargas,2019-06-14,7000000,Operaciones,Jefe de operaciones,Famisanar,Protección,Seguros Bolívar,2026,2,30,0,0
+E012,Santiago Torres Ramírez,2024-02-29,1800000,Comercial,Asesor de ventas,Nueva EPS,Protección,Seguros Bolívar,2026,2,30,0,200000
+E013,Sebastián Ramírez Moreno,2019-09-11,5500000,Operaciones,Auxiliar logístico,Sura EPS,Protección,Positiva,2026,2,30,300000,0
+E014,Ana Pardo Hernández,2020-12-12,2800000,Tecnología,Soporte técnico,Nueva EPS,Porvenir,Positiva,2026,2,30,0,200000
+E015,Valentina Rodríguez Torres,2024-04-09,4200000,Comercial,Asesor de ventas,Compensar,Skandia,Seguros Bolívar,2026,2,30,0,0
+E016,Paula Rodríguez Díaz,2018-10-03,7000000,Comercial,Ejecutivo comercial,Sanitas,Skandia,Positiva,2026,2,30,0,0
+E017,Andrés Gómez García,2024-01-07,1423500,Talento Humano,Coordinador de talento humano,Sura EPS,Colfondos,ARL Sura,2026,2,30,0,200000
+E018,Valentina Rojas Ortiz,2024-10-02,5500000,Talento Humano,Analista de nómina,Nueva EPS,Skandia,ARL Sura,2026,2,30,150000,0
+E019,David Pardo Vargas,2018-12-18,7000000,Talento Humano,Coordinador de talento humano,Sanitas,Porvenir,Colmena,2026,2,30,150000,0
+E020,Sara Gómez Díaz,2023-12-04,2200000,Contabilidad,Auxiliar contable,Nueva EPS,Protección,ARL Sura,2026,2,30,300000,200000
+E021,Daniela Ortiz Hernández,2021-12-27,1800000,Operaciones,Auxiliar logístico,Sanitas,Colpensiones,Colmena,2026,2,20,0,200000
+E022,Juan Ramírez Moreno,2020-03-29,2800000,Tecnología,Soporte técnico,Salud Total,Skandia,Colmena,2026,2,30,300000,200000
+E023,David Rojas Díaz,2024-10-14,3500000,Talento Humano,Analista de nómina,Nueva EPS,Skandia,Colmena,2026,2,30,0,0
+E024,Andrés Moreno Pardo,2020-03-16,2800000,Contabilidad,Contador,Nueva EPS,Protección,Seguros Bolívar,2026,2,30,0,200000
+E025,Sebastián Martínez López,2022-05-11,7000000,Operaciones,Jefe de operaciones,Famisanar,Protección,Seguros Bolívar,2026,2,30,150000,0
+E026,Laura Ramírez Torres,2022-07-03,4200000,Tecnología,Administrador de bases de datos,Famisanar,Porvenir,Positiva,2026,2,25,0,0
+E027,Valentina Torres García,2024-09-06,1423500,Tecnología,Desarrollador,Compensar,Colfondos,Positiva,2026,2,30,0,200000
+E028,Ana López García,2022-11-12,1423500,Operaciones,Jefe de operaciones,Sanitas,Protección,ARL Sura,2026,2,30,0,200000
+E029,Sara Moreno Castro,2020-11-28,3500000,Contabilidad,Contador,Salud Total,Skandia,Positiva,2026,2,20,0,0
+E030,Luisa Suárez García,2023-12-19,7000000,Talento Humano,Coordinador de talento humano,Sanitas,Colpensiones,ARL Sura,2026,2,30,300000,0
+E031,Valentina Hernández García,2023-04-24,1423500,Comercial,Ejecutivo comercial,Salud Total,Porvenir,ARL Sura,2026,2,28,0,200000
+E032,Jorge Rodríguez Moreno,2020-02-23,1800000,Contabilidad,Auxiliar contable,Nueva EPS,Porvenir,ARL Sura,2026,2,20,300000,200000
+E033,Laura Torres Castro,2023-09-02,1423500,Operaciones,Auxiliar logístico,Salud Total,Colpensiones,Positiva,2026,2,30,0,200000
+E034,Sara Moreno Rojas,2024-04-10,7000000,Contabilidad,Auxiliar contable,Sanitas,Skandia,Positiva,2026,2,30,0,0
+E035,Natalia Castro Martínez,2020-09-12,5500000,Comercial,Ejecutivo comercial,Compensar,Porvenir,Positiva,2026,2,30,300000,0
+E036,Sebastián García Rojas,2019-07-17,2200000,Contabilidad,Contador,Compensar,Protección,ARL Sura,2026,2,20,0,200000
+E037,Juan Hernández Suárez,2023-10-13,2200000,Comercial,Asesor de ventas,Compensar,Colfondos,Seguros Bolívar,2026,2,30,300000,200000
+E038,Laura Ortiz Gómez,2021-10-16,4200000,Tecnología,Administrador de bases de datos,Salud Total,Skandia,Seguros Bolívar,2026,2,20,150000,0
+E039,Sara Vargas Martínez,2019-04-08,4200000,Talento Humano,Coordinador de talento humano,Sanitas,Porvenir,ARL Sura,2026,2,28,0,0
+E040,Santiago Rojas García,2022-09-26,1423500,Contabilidad,Auxiliar contable,Famisanar,Colfondos,Seguros Bolívar,2026,2,28,300000,200000
+E001,Carlos Martínez López,2022-02-06,5500000,Contabilidad,Contador,Salud Total,Porvenir,Positiva,2026,3,25,0,0
+E002,Miguel Martínez Moreno,2019-01-07,5500000,Talento Humano,Analista de nómina,Salud Total,Skandia,ARL Sura,2026,3,20,300000,0
+E003,Luisa Rodríguez Ramírez,2018-07-23,2800000,Operaciones,Jefe de operaciones,Sanitas,Porvenir,Positiva,2026,3,20,0,200000
+E004,Jorge López Vargas,2024-04-13,2200000,Contabilidad,Auxiliar contable,Famisanar,Protección,ARL Sura,2026,3,30,0,200000
+E005,Andrés Martínez Rodríguez,2020-04-23,4200000,Operaciones,Jefe de operaciones,Compensar,Colpensiones,Seguros Bolívar,2026,3,30,0,0
+E006,Sebastián Vargas Moreno,2020-01-07,7000000,Contabilidad,Auxiliar contable,Famisanar,Protección,ARL Sura,2026,3,20,0,0
+E007,Mariana Torres Vargas,2024-10-30,7000000,Operaciones,Auxiliar logístico,Sura EPS,Porvenir,Seguros Bolívar,2026,3,30,150000,0
+E008,David Suárez Rodríguez,2018-11-14,2200000,Tecnología,Administrador de bases de datos,Salud Total,Colpensiones,Colmena,2026,3,30,300000,200000
+E009,Luisa Torres Martínez,2019-01-19,7000000,Contabilidad,Auxiliar contable,Nueva EPS,Skandia,ARL Sura,2026,3,30,0,0
+E010,Felipe Ramírez Ortiz,2018-04-03,7000000,Talento Humano,Coordinador de talento humano,Compensar,Colfondos,Positiva,2026,3,20,300000,0
+E011,Carlos Díaz Vargas,2019-06-14,7000000,Operaciones,Jefe de operaciones,Famisanar,Protección,Seguros Bolívar,2026,3,20,0,0
+E012,Santiago Torres Ramírez,2024-02-29,1800000,Comercial,Asesor de ventas,Nueva EPS,Protección,Seguros Bolívar,2026,3,30,0,200000
+E013,Sebastián Ramírez Moreno,2019-09-11,5500000,Operaciones,Auxiliar logístico,Sura EPS,Protección,Positiva,2026,3,30,150000,0
+E014,Ana Pardo Hernández,2020-12-12,2800000,Tecnología,Soporte técnico,Nueva EPS,Porvenir,Positiva,2026,3,30,300000,200000
+E015,Valentina Rodríguez Torres,2024-04-09,4200000,Comercial,Asesor de ventas,Compensar,Skandia,Seguros Bolívar,2026,3,28,0,0
+E016,Paula Rodríguez Díaz,2018-10-03,7000000,Comercial,Ejecutivo comercial,Sanitas,Skandia,Positiva,2026,3,20,300000,0
+E017,Andrés Gómez García,2024-01-07,1423500,Talento Humano,Coordinador de talento humano,Sura EPS,Colfondos,ARL Sura,2026,3,30,150000,200000
+E018,Valentina Rojas Ortiz,2024-10-02,5500000,Talento Humano,Analista de nómina,Nueva EPS,Skandia,ARL Sura,2026,3,30,0,0
+E019,David Pardo Vargas,2018-12-18,7000000,Talento Humano,Coordinador de talento humano,Sanitas,Porvenir,Colmena,2026,3,30,0,0
+E020,Sara Gómez Díaz,2023-12-04,2200000,Contabilidad,Auxiliar contable,Nueva EPS,Protección,ARL Sura,2026,3,30,0,200000
+E021,Daniela Ortiz Hernández,2021-12-27,1800000,Operaciones,Auxiliar logístico,Sanitas,Colpensiones,Colmena,2026,3,20,150000,200000
+E022,Juan Ramírez Moreno,2020-03-29,2800000,Tecnología,Soporte técnico,Salud Total,Skandia,Colmena,2026,3,30,150000,200000
+E023,David Rojas Díaz,2024-10-14,3500000,Talento Humano,Analista de nómina,Nueva EPS,Skandia,Colmena,2026,3,30,150000,0
+E024,Andrés Moreno Pardo,2020-03-16,2800000,Contabilidad,Contador,Nueva EPS,Protección,Seguros Bolívar,2026,3,20,0,200000
+E025,Sebastián Martínez López,2022-05-11,7000000,Operaciones,Jefe de operaciones,Famisanar,Protección,Seguros Bolívar,2026,3,30,300000,0
+E026,Laura Ramírez Torres,2022-07-03,4200000,Tecnología,Administrador de bases de datos,Famisanar,Porvenir,Positiva,2026,3,20,0,0
+E027,Valentina Torres García,2024-09-06,1423500,Tecnología,Desarrollador,Compensar,Colfondos,Positiva,2026,3,30,300000,200000
+E028,Ana López García,2022-11-12,1423500,Operaciones,Jefe de operaciones,Sanitas,Protección,ARL Sura,2026,3,30,0,200000
+E029,Sara Moreno Castro,2020-11-28,3500000,Contabilidad,Contador,Salud Total,Skandia,Positiva,2026,3,30,0,0
+E030,Luisa Suárez García,2023-12-19,7000000,Talento Humano,Coordinador de talento humano,Sanitas,Colpensiones,ARL Sura,2026,3,25,300000,0
+E031,Valentina Hernández García,2023-04-24,1423500,Comercial,Ejecutivo comercial,Salud Total,Porvenir,ARL Sura,2026,3,30,0,200000
+E032,Jorge Rodríguez Moreno,2020-02-23,1800000,Contabilidad,Auxiliar contable,Nueva EPS,Porvenir,ARL Sura,2026,3,30,0,200000
+E033,Laura Torres Castro,2023-09-02,1423500,Operaciones,Auxiliar logístico,Salud Total,Colpensiones,Positiva,2026,3,30,0,200000
+E034,Sara Moreno Rojas,2024-04-10,7000000,Contabilidad,Auxiliar contable,Sanitas,Skandia,Positiva,2026,3,20,0,0
+E035,Natalia Castro Martínez,2020-09-12,5500000,Comercial,Ejecutivo comercial,Compensar,Porvenir,Positiva,2026,3,30,150000,0
+E036,Sebastián García Rojas,2019-07-17,2200000,Contabilidad,Contador,Compensar,Protección,ARL Sura,2026,3,30,300000,200000
+E037,Juan Hernández Suárez,2023-10-13,2200000,Comercial,Asesor de ventas,Compensar,Colfondos,Seguros Bolívar,2026,3,30,150000,200000
+E038,Laura Ortiz Gómez,2021-10-16,4200000,Tecnología,Administrador de bases de datos,Salud Total,Skandia,Seguros Bolívar,2026,3,30,150000,0
+E039,Sara Vargas Martínez,2019-04-08,4200000,Talento Humano,Coordinador de talento humano,Sanitas,Porvenir,ARL Sura,2026,3,30,300000,0
+E040,Santiago Rojas García,2022-09-26,1423500,Contabilidad,Auxiliar contable,Famisanar,Colfondos,Seguros Bolívar,2026,3,30,0,200000

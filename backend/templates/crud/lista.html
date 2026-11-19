@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block titulo %}{{ e.titulo }}{% endblock %}
+{% block contenido %}
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+  <div>
+    <div class="text-muted small">{{ e.modulo }}</div>
+    <h3 class="mb-0">{{ e.titulo }} <span class="badge bg-light text-dark fs-6">{{ total | num }} registros</span></h3>
+  </div>
+  <div class="d-flex gap-2">
+    <a class="btn btn-outline-success" href="{{ url_con(exportar='csv', pagina=None) }}"><i class="bi bi-filetype-csv"></i> Exportar CSV</a>
+    {% if puede_escribir %}
+    <a class="btn btn-primary" href="{{ url_for('crud.crear', clave=e.clave) }}"><i class="bi bi-plus-lg"></i> Nuevo</a>
+    {% endif %}
+  </div>
+</div>
+
+{# ---------- filtros (consulta dinámica) ---------- #}
+<form class="card card-body mb-3" method="get">
+  <div class="row g-2 align-items-end">
+    <div class="col-md-4"><label class="form-label small mb-1">Buscar</label>
+      <input class="form-control" name="q" value="{{ args.get('q','') }}" placeholder="Texto a buscar..."></div>
+    {% for c in e.campos if c.tipo == 'fk' and filtros_fk[c.nombre] is not none %}
+    <div class="col-md-2"><label class="form-label small mb-1">{{ c.etiqueta }}</label>
+      <select class="form-select" name="f_{{ c.nombre }}">
+        <option value="">Todos</option>
+        {% for o in filtros_fk[c.nombre] %}<option value="{{ o.id }}" {% if args.get('f_'~c.nombre) == o.id|string %}selected{% endif %}>{{ o.txt }}</option>{% endfor %}
+      </select></div>
+    {% endfor %}
+    {% for c in e.campos if c.tipo == 'm2m' and c.nombre in filtros_m2m %}
+    <div class="col-md-2"><label class="form-label small mb-1">{{ c.etiqueta }}</label>
+      <select class="form-select" name="f_{{ c.nombre }}">
+        <option value="">Todos</option>
+        {% for o in filtros_m2m[c.nombre] %}<option value="{{ o.id }}" {% if args.get('f_'~c.nombre) == o.id|string %}selected{% endif %}>{{ o.txt }}</option>{% endfor %}
+      </select></div>
+    {% endfor %}
+    <div class="col-md-1"><label class="form-label small mb-1">Por página</label>
+      <select class="form-select" name="por_pagina">{% for t in tamanos %}<option {% if t == por_pagina %}selected{% endif %}>{{ t }}</option>{% endfor %}</select></div>
+    <div class="col-auto">
+      <button class="btn btn-dark"><i class="bi bi-funnel"></i> Filtrar</button>
+      <a class="btn btn-outline-secondary" href="{{ url_for('crud.listar', clave=e.clave) }}">Limpiar</a>
+    </div>
+  </div>
+  {% set rangos = e.campos | selectattr('tipo', 'in', ['int', 'decimal', 'date']) | list %}
+  {% if rangos %}
+  <a class="small mt-2" data-bs-toggle="collapse" href="#rangos">Filtros por rango ▾</a>
+  <div class="collapse {% for c in rangos %}{% if args.get(c.nombre~'_min') or args.get(c.nombre~'_max') %}show{% endif %}{% endfor %}" id="rangos">
+    <div class="row g-2 mt-1">
+      {% for c in rangos %}
+      <div class="col-md-3"><label class="form-label small mb-1">{{ c.etiqueta }}</label>
+        <div class="input-group input-group-sm">
+          <input class="form-control" name="{{ c.nombre }}_min" type="{{ 'date' if c.tipo == 'date' else 'text' }}" placeholder="desde" value="{{ args.get(c.nombre~'_min','') }}">
+          <input class="form-control" name="{{ c.nombre }}_max" type="{{ 'date' if c.tipo == 'date' else 'text' }}" placeholder="hasta" value="{{ args.get(c.nombre~'_max','') }}">
+        </div></div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</form>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-hover table-sm mb-0 tabla-datos">
+      <thead class="table-light"><tr>
+        {% for c in e.campos if c.en_lista %}
+          {% set col = c.nombre ~ '__txt' if c.tipo == 'fk' else c.nombre %}
+          <th>{% if c.tipo != 'm2m' %}<a href="{{ url_con(orden=col if c.tipo == 'fk' else c.nombre, dir='desc' if orden in (c.nombre, col) and direccion == 'asc' else 'asc', pagina=None) }}">{{ c.etiqueta }}
+            {% if orden in (c.nombre, col) %}<i class="bi bi-caret-{{ 'up' if direccion == 'asc' else 'down' }}-fill"></i>{% endif %}</a>
+            {% else %}{{ c.etiqueta }}{% endif %}</th>
+        {% endfor %}
+        {% if puede_escribir %}<th class="text-end">Acciones</th>{% endif %}
+      </tr></thead>
+      <tbody>
+      {% for f in filas %}
+        <tr>
+        {% for c in e.campos if c.en_lista %}
+          {% set v = f[c.nombre ~ '__txt'] if c.tipo == 'fk' else f[c.nombre] %}
+          <td title="{{ v | celda }}" class="{{ 'text-end' if c.tipo in ('int', 'decimal') and c.nombre not in e.pk else '' }}">{{ v | celda }}</td>
+        {% endfor %}
+        {% if puede_escribir %}
+          <td class="text-end">
+            <a class="btn btn-sm btn-outline-primary" href="{{ url_for('crud.editar', clave=e.clave, **pk_de(e, f)) }}" title="Editar"><i class="bi bi-pencil"></i></a>
+            <form method="post" action="{{ url_for('crud.eliminar', clave=e.clave) }}" class="d-inline" onsubmit="return confirm('¿Eliminar este registro?');">
+              <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+              <input type="hidden" name="volver" value="{{ request.full_path }}">
+              {% for k, v in pk_de(e, f).items() %}<input type="hidden" name="{{ k }}" value="{{ v }}">{% endfor %}
+              <button class="btn btn-sm btn-outline-danger" title="Eliminar"><i class="bi bi-trash"></i></button>
+            </form>
+          </td>
+        {% endif %}
+        </tr>
+      {% else %}
+        <tr><td colspan="30" class="text-center text-muted py-4">No hay registros con esos filtros.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% if paginas > 1 %}
+<nav class="mt-3"><ul class="pagination pagination-sm justify-content-center">
+  <li class="page-item {% if pagina == 1 %}disabled{% endif %}"><a class="page-link" href="{{ url_con(pagina=pagina-1) }}">‹</a></li>
+  {% for p in range([1, pagina-3]|max, [paginas, pagina+3]|min + 1) %}
+  <li class="page-item {% if p == pagina %}active{% endif %}"><a class="page-link" href="{{ url_con(pagina=p) }}">{{ p }}</a></li>
+  {% endfor %}
+  <li class="page-item {% if pagina == paginas %}disabled{% endif %}"><a class="page-link" href="{{ url_con(pagina=pagina+1) }}">›</a></li>
+</ul><p class="text-center small text-muted">Página {{ pagina }} de {{ paginas }}</p></nav>
+{% endif %}
+{% endblock %}

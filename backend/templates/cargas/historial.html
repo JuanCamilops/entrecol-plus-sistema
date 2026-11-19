@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block titulo %}Historial de cargas{% endblock %}
+{% block contenido %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3 class="mb-0">Historial de cargas</h3>
+  <a class="btn btn-primary" href="{{ url_for('cargas.subir') }}"><i class="bi bi-upload"></i> Nueva carga</a>
+</div>
+<div class="card"><div class="table-responsive"><table class="table table-sm table-hover mb-0 tabla-datos">
+  <thead class="table-light"><tr><th>#</th><th>Fecha</th><th>Usuario</th><th>Archivo</th><th>Tipo</th><th>Leídos</th><th>Cargados</th><th>Rechazados</th><th>Estado</th><th></th></tr></thead>
+  <tbody>{% for c in filas %}<tr>
+    <td>{{ c.id_carga }}</td><td>{{ c.fecha_hora | celda }}</td><td>{{ c.username }}</td><td title="{{ c.nombre_archivo }}">{{ c.nombre_archivo }}</td>
+    <td>{{ tipos[c.tipo_archivo].titulo if c.tipo_archivo in tipos else c.tipo_archivo }}</td>
+    <td>{{ c.registros_leidos }}</td><td class="text-success">{{ c.registros_cargados }}</td><td class="text-danger">{{ c.registros_rechazados }}</td>
+    <td><span class="badge bg-{{ {'COMPLETADA':'success','PARCIAL':'warning','SIN_CAMBIOS':'info','ERROR':'danger'}.get(c.estado,'secondary') }}">{{ c.estado }}</span></td>
+    <td>{% if c.tiene_rechazos %}<a class="small" href="{{ url_for('cargas.rechazos', id_carga=c.id_carga) }}">rechazos</a>{% endif %}</td>
+  </tr>{% else %}<tr><td colspan="10" class="text-center text-muted py-4">Sin cargas.</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% endblock %}

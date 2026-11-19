@@ -1,0 +1,31 @@
+bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,ratings_count,text_reviews_count,publication_date,publisher
+900001,Crónicas de Bruma (Ejemplo),Clara Restrepo/Julián Becerra,4.69,8278212244,9788278212240,eng,551,40299,1541,2/16/1999,Ediciones del Río
+900002,Los caminos de Mompox (Ejemplo),Hernán Ospina,3.39,7020166253,9787020166251,eng,441,18464,609,3/13/1992,Prensa Cordillera
+900003,Viaje a Ceniza (Ejemplo),Gabriela Montoya,3.92,8035301071,9788035301071,eng,212,10966,1317,6/5/2019,Ediciones del Río
+900004,Los caminos de la Sabana (Ejemplo),Clara Restrepo,3.87,0907138128,9780907138129,spa,550,28011,285,4/19/2012,Grupo Editorial Sabana
+900005,El silencio de los Cerros (Ejemplo),Martín Salazar,3.25,2165955491,9782165955494,spa,467,16931,1657,11/2/1997,Grupo Editorial Sabana
+900006,Cartas desde los Cerros (Ejemplo),Gabriela Montoya,3.46,2270481496,9782270481499,spa,436,49290,127,3/5/2007,Libros Altamira
+900007,Los caminos de los Cerros (Ejemplo),Elena Cifuentes,4.17,3079809076,9783079809071,spa,184,17761,1836,10/21/2020,Ediciones del Río
+900008,El jardín de Mompox (Ejemplo),Hernán Ospina/Gabriela Montoya,3.15,4229189745,9784229189746,eng,691,32101,0,12/31/2003,Editorial Andina
+900009,Viaje a Mompox (Ejemplo),Hernán Ospina/Tomás Arango,3.36,4303925683,9784303925680,spa,558,5570,1129,11/22/1994,Editorial Andina
+900010,El jardín de Ceniza (Ejemplo),Tomás Arango,4.74,0114667748,9780114667740,spa,630,41699,895,7/17/2015,Editorial Andina
+900011,El último verano en la Sabana (Ejemplo),Isabel Quintero,3.76,1167780280,9781167780288,spa,91,685,1100,7/11/2013,Prensa Cordillera
+900012,Viaje a San Telmo (Ejemplo),Ricardo Peña,3.99,5046627965,9785046627961,en-US,342,1918,1967,11/30/2018,Libros Altamira
+900013,Viaje a San Telmo (Ejemplo),Lucía Herrera,4.60,7666161050,9787666161054,eng,173,16859,466,12/23/1990,Libros Altamira
+900014,El silencio de Villa Real (Ejemplo),Hernán Ospina,3.72,4075185842,9784075185848,eng,292,442,1632,7/13/1991,Prensa Cordillera
+900015,Viaje a Ceniza (Ejemplo),Tomás Arango,4.40,8036339595,9788036339592,spa,326,30481,453,3/27/2012,Prensa Cordillera
+900016,La ciudad de Puerto Lejano (Ejemplo),Martín Salazar,3.42,8265492367,9788265492365,spa,586,27330,1864,12/22/2017,Editorial Andina
+900017,Viaje a Bruma (Ejemplo),Gabriela Montoya,4.76,6486639652,9786486639651,spa,515,3397,1453,6/9/1992,Editorial Andina
+900018,Crónicas de Mompox (Ejemplo),Hernán Ospina/Ricardo Peña,3.66,2076810528,9782076810523,spa,627,48910,957,1/29/1995,Editorial Andina
+900019,La memoria de los Andes (Ejemplo),Ricardo Peña/Julián Becerra,3.10,3448218464,9783448218466,spa,172,23033,860,11/5/2009,Editorial Andina
+900020,Historias de Villa Real (Ejemplo),Gabriela Montoya,3.25,6125075818,9786125075819,eng,290,24426,1109,12/31/2005,Libros Altamira
+900021,El jardín de Villa Real (Ejemplo),Ricardo Peña,3.52,2172602922,9782172602923,eng,131,24613,71,4/15/2011,Libros Altamira
+900022,Crónicas de Puerto Lejano (Ejemplo),Isabel Quintero,3.68,0771946996,9780771946998,spa,433,40434,89,9/29/1998,Prensa Cordillera
+900023,El jardín de Puerto Lejano (Ejemplo),Isabel Quintero,4.66,8114815779,9788114815772,spa,114,15326,219,5/5/2003,Libros Altamira
+900024,La ciudad de Mompox (Ejemplo),Gabriela Montoya/Isabel Quintero,4.68,7783387063,9787783387061,spa,98,48397,621,4/15/2009,Ediciones del Río
+900025,La ciudad de Agua Clara (Ejemplo),Ricardo Peña,4.43,6620342647,9786620342645,en-US,170,33546,404,5/2/2004,Libros Altamira
+900026,Crónicas de Bruma (Ejemplo),Tomás Arango,3.92,8184048335,9788184048339,en-US,423,10531,873,4/16/2008,Editorial Andina
+900027,Viaje a los Andes (Ejemplo),Julián Becerra,3.82,0874866278,9780874866278,eng,267,15348,272,10/9/1993,Libros Altamira
+900028,Crónicas de Ceniza (Ejemplo),Clara Restrepo,3.60,5049131278,9785049131274,en-US,364,24443,520,10/21/2019,Prensa Cordillera
+900029,Viaje a Mompox (Ejemplo),Tomás Arango/Elena Cifuentes,3.58,223878733X,9782238787335,en-US,282,21386,132,1/2/2001,Libros Altamira
+900030,Viaje a los Andes (Ejemplo),Clara Restrepo,4.21,2802111485,9782802111481,spa,194,294,972,8/11/2013,Ediciones del Río

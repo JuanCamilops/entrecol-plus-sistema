@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block titulo %}{{ rep.titulo }}{% endblock %}
+{% block contenido %}
+<div class="text-muted small"><a href="{{ url_for('consultas.indice') }}">Consultas</a> · {{ rep.modulo }}</div>
+<h3>{{ rep.titulo }}</h3>
+{% if rep.descripcion %}<p class="text-muted">{{ rep.descripcion }}</p>{% endif %}
+
+<form class="card card-body mb-3" method="get">
+  <input type="hidden" name="ejecutar" value="1">
+  <div class="row g-2 align-items-end">
+  {% for p in rep.params %}
+    <div class="col-md-2">
+      <label class="form-label small mb-1">{{ p.etiqueta }}{% if p.requerido %} *{% endif %}</label>
+      {% if p.tipo == 'select' %}
+        <select class="form-select form-select-sm" name="{{ p.nombre }}">
+          {% if not p.requerido %}<option value="">Todos</option>{% endif %}
+          {% for o in opciones[p.nombre] %}
+            <option value="{{ o.id }}" {% if valores[p.nombre] == o.id|string %}selected{% endif %}>{{ o.txt }}</option>
+          {% endfor %}
+        </select>
+      {% else %}
+        <input class="form-control form-control-sm" name="{{ p.nombre }}"
+               type="{{ 'date' if p.tipo == 'date' else 'number' if p.tipo == 'int' else 'text' }}"
+               value="{{ valores[p.nombre] }}">
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {% if rep.orden_opciones %}
+    <div class="col-md-2">
+      <label class="form-label small mb-1">Ordenar por</label>
+      <select class="form-select form-select-sm" name="orden">
+        {% for k in rep.orden_opciones.keys() %}
+          <option value="{{ k }}" {% if valores.orden == k %}selected{% endif %}>{{ k }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-1">
+      <label class="form-label small mb-1">Orden</label>
+      <select class="form-select form-select-sm" name="dir">
+        <option value="ASC" {% if valores.dir == 'ASC' %}selected{% endif %}>ASC</option>
+        <option value="DESC" {% if valores.dir == 'DESC' %}selected{% endif %}>DESC</option>
+      </select>
+    </div>
+  {% endif %}
+
+    <div class="col-auto d-flex flex-wrap gap-1">
+      <button class="btn btn-dark btn-sm"><i class="bi bi-play-fill"></i> Consultar</button>
+      {% if filas or charts %}
+        <a class="btn btn-outline-success btn-sm" href="{{ url_con(exportar='csv', ejecutar=1, **valores) }}">
+          <i class="bi bi-filetype-csv"></i> CSV
+        </a>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalPdfPreview">
+          <i class="bi bi-eye"></i> Vista Previa PDF
+        </button>
+        <a class="btn btn-danger btn-sm" href="{{ url_con(exportar='pdf', ejecutar=1, **valores) }}">
+          <i class="bi bi-file-earmark-pdf"></i> Descargar PDF
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</form>
+
+{% for e in errores %}<div class="alert alert-warning">{{ e }}</div>{% endfor %}
+
+{% if not errores %}
+  {% if charts %}
+  <div class="row g-3 mb-4">
+    {% for ch in charts %}
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-light fw-semibold small">{{ ch.titulo }}</div>
+        <div class="card-body text-center p-2">
+          <img src="data:image/png;base64,{{ ch.img }}" alt="{{ ch.titulo }}" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-sm table-hover mb-0 tabla-datos">
+        <thead class="table-light">
+          <tr>{% for c in columnas %}<th>{{ c }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for f in filas %}
+            <tr>{% for c in columnas %}<td title="{{ f[c] | celda }}">{{ f[c] | celda }}</td>{% endfor %}</tr>
+          {% else %}
+            <tr><td class="text-muted text-center py-4">Sin resultados.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="small text-muted mt-2">{{ filas | length }} fila(s).</p>
+{% endif %}
+
+{% if filas or charts %}
+{% set pdf_preview_url = url_con(exportar='pdf_preview', ejecutar=1, **valores) %}
+<div class="modal fade" id="modalPdfPreview" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-file-earmark-pdf text-danger"></i> Vista Previa — {{ rep.titulo }}</h5>
+        <div class="ms-auto d-flex gap-2 me-2">
+          <a class="btn btn-outline-secondary btn-sm" target="_blank" href="{{ pdf_preview_url }}">
+            <i class="bi bi-box-arrow-up-right"></i> Abrir en pestaña nueva
+          </a>
+          <a class="btn btn-danger btn-sm" href="{{ url_con(exportar='pdf', ejecutar=1, **valores) }}">
+            <i class="bi bi-download"></i> Descargar PDF
+          </a>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body p-0" style="height: 78vh;">
+        <iframe id="iframePdfPreview" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modalEl = document.getElementById("modalPdfPreview");
+    const iframeEl = document.getElementById("iframePdfPreview");
+    if (modalEl && iframeEl) {
+      modalEl.addEventListener("show.bs.modal", function () {
+        iframeEl.src = "{{ pdf_preview_url }}";
+      });
+      modalEl.addEventListener("hidden.bs.modal", function () {
+        iframeEl.src = "";
+      });
+    }
+  });
+</script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block titulo %}Cargar archivos{% endblock %}
+{% block contenido %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3 class="mb-0">Cargar archivos</h3>
+  <a class="btn btn-outline-secondary" href="{{ url_for('cargas.historial') }}"><i class="bi bi-clock-history"></i> Historial</a>
+</div>
+<div class="row g-3">
+  <div class="col-lg-5"><div class="card p-4">
+    <form method="post" enctype="multipart/form-data">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <div class="mb-3"><label class="form-label">¿Qué vas a cargar?</label>
+        <select class="form-select" name="tipo" id="tipo" required>
+          <option value="">— Selecciona —</option>
+          {% for k, t in tipos.items() %}<option value="{{ k }}" {% if tipo_sel == k %}selected{% endif %}>{{ t.modulo }} · {{ t.titulo }}</option>{% endfor %}
+        </select></div>
+      <div class="mb-3"><label class="form-label">Archivo (.csv o .xlsx, máx. {{ config.MAX_CONTENT_LENGTH // 1048576 }} MB)</label>
+        <input class="form-control" type="file" name="archivo" accept=".csv,.xlsx" required></div>
+      <button class="btn btn-primary w-100" onclick="this.disabled=true;this.innerText='Procesando...';this.form.submit();">
+        <i class="bi bi-upload"></i> Cargar y procesar</button>
+    </form>
+    <p class="small text-muted mt-3 mb-0">El archivo se valida fila por fila: se omiten duplicados y registros que ya existen,
+      y se verifican las llaves foráneas. Si ocurre un error, no se guarda nada (transacción).</p>
+  </div></div>
+  <div class="col-lg-7"><div class="card p-4">
+    <h5>Estructura esperada</h5>
+    {% for k, t in tipos.items() %}
+    <div class="estructura mb-3 {% if tipo_sel and tipo_sel != k %}d-none{% endif %}" data-tipo="{{ k }}">
+      <div class="fw-semibold">{{ t.titulo }} <a class="small ms-2" href="{{ url_for('cargas.plantilla', tipo=k) }}"><i class="bi bi-download"></i> plantilla</a></div>
+      <div class="small"><code>{{ t.columnas | join(', ') }}</code></div>
+      <div class="small text-muted">Obligatorias: {{ t.obligatorias | join(', ') }}. {{ t.nota }}</div>
+    </div>
+    {% endfor %}
+  </div></div>
+</div>
+
+{% if resultado %}
+<div class="card p-4 mt-3">
+  <h5>Resultado de la carga #{{ resultado.id_carga }} — {{ resultado.estado }}</h5>
+  <p class="mb-2">{{ resultado.mensaje }}</p>
+  <div class="row g-2 mb-3 text-center">
+    <div class="col"><div class="border rounded p-2"><div class="small text-muted">Leídos</div><div class="stat">{{ resultado.leidos }}</div></div></div>
+    <div class="col"><div class="border rounded p-2"><div class="small text-muted">Cargados</div><div class="stat text-success">{{ resultado.cargados }}</div></div></div>
+    <div class="col"><div class="border rounded p-2"><div class="small text-muted">Rechazados</div><div class="stat text-danger">{{ resultado.rechazados }}</div></div></div>
+  </div>
+  {% if resultado.resumen %}<p class="small text-muted">Detalle: {% for k, v in resultado.resumen.items() %}{{ k.replace('_',' ') }} = {{ v }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+  {% if resultado.rechazos %}
+  <div class="d-flex justify-content-between"><h6>Filas rechazadas (primeras {{ resultado.rechazos|length }})</h6>
+    <a class="small" href="{{ url_for('cargas.rechazos', id_carga=resultado.id_carga) }}"><i class="bi bi-download"></i> Descargar todas</a></div>
+  <div style="max-height:300px;overflow:auto"><table class="table table-sm"><thead><tr><th>Fila</th><th>Motivo</th></tr></thead><tbody>
+    {% for fila, motivo in resultado.rechazos %}<tr><td>{{ fila }}</td><td>{{ motivo }}</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+document.getElementById('tipo').addEventListener('change', e => {
+  document.querySelectorAll('.estructura').forEach(d => d.classList.toggle('d-none', e.target.value && d.dataset.tipo !== e.target.value));
+});
+</script>
+{% endblock %}

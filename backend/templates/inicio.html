@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+<h3 class="mb-3">Panel principal</h3>
+<div class="row g-3 mb-4">
+  {% for nombre, n in conteos.items() %}
+  <div class="col-6 col-md-2"><div class="card p-3"><div class="text-muted small">{{ nombre }}</div><div class="stat">{{ n | num }}</div></div></div>
+  {% endfor %}
+</div>
+<div class="row g-3">
+  <div class="col-lg-6"><div class="card p-3 h-100">
+    <div class="d-flex justify-content-between"><h5>Últimas cargas de archivos</h5>
+      {% if tiene_permiso('cargar') %}<a href="{{ url_for('cargas.subir') }}" class="btn btn-sm btn-primary"><i class="bi bi-upload"></i> Cargar</a>{% endif %}</div>
+    <table class="table table-sm mb-0"><thead><tr><th>Fecha</th><th>Archivo</th><th>Tipo</th><th>Usuario</th><th>Cargados</th><th>Estado</th></tr></thead><tbody>
+    {% for c in cargas %}<tr><td>{{ c.fecha_hora | celda }}</td><td>{{ c.nombre_archivo }}</td><td>{{ c.tipo_archivo }}</td><td>{{ c.username }}</td>
+      <td>{{ c.registros_cargados }}/{{ c.registros_leidos }}</td><td>{{ c.estado }}</td></tr>
+    {% else %}<tr><td colspan="6" class="text-muted">Sin cargas todavía.</td></tr>{% endfor %}
+    </tbody></table></div></div>
+  {% if eventos %}
+  <div class="col-lg-6"><div class="card p-3 h-100">
+    <div class="d-flex justify-content-between"><h5>Actividad reciente</h5><a href="{{ url_for('admin.ver_auditoria') }}" class="small">Ver auditoría</a></div>
+    <table class="table table-sm mb-0"><thead><tr><th>Fecha</th><th>Usuario</th><th>Acción</th><th>Tabla</th><th>IP</th></tr></thead><tbody>
+    {% for a in eventos %}<tr><td>{{ a.fecha_hora | celda }}</td><td>{{ a.username or '—' }}</td><td>{{ a.accion }}</td><td>{{ a.tabla_afectada or '' }}</td><td>{{ a.ip }}</td></tr>{% endfor %}
+    </tbody></table></div></div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block titulo %}Error {{ codigo }}{% endblock %}
+{% block contenedor %}container{% endblock %}
+{% block contenido %}
+<div class="card p-5 text-center" style="max-width:640px;margin:6vh auto">
+  <div class="display-4 text-muted">{{ codigo }}</div>
+  <h4>{{ titulo }}</h4>
+  <p class="text-muted">{{ detalle }}</p>
+  <a class="btn btn-primary" href="{{ url_for('inicio') }}">Ir al inicio</a>
+</div>
+{% endblock %}

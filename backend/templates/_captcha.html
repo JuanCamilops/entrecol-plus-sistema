@@ -1,0 +1,14 @@
+{% if captcha_modo == 'recaptcha' %}
+  <div class="mb-3"><div class="g-recaptcha" data-sitekey="{{ config.RECAPTCHA_SITE_KEY }}"></div></div>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% else %}
+  <label class="form-label">Verificación (captcha)</label>
+  <div class="d-flex align-items-center gap-2 mb-2">
+    <img id="captcha-img" class="captcha-img" src="{{ url_for('auth.captcha_img') }}" alt="captcha" width="200" height="70">
+    <button type="button" class="btn btn-outline-secondary btn-sm" title="Otra imagen"
+      onclick="document.getElementById('captcha-img').src='{{ url_for('auth.captcha_img') }}?'+Date.now()">
+      <i class="bi bi-arrow-clockwise"></i></button>
+  </div>
+  <input class="form-control mb-3" name="captcha" required autocomplete="off" maxlength="10"
+         placeholder="Escribe los caracteres de la imagen" style="text-transform:uppercase">
+{% endif %}

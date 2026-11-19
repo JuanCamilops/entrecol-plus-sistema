@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %}Consultas{% endblock %}
+{% block contenido %}
+<h3 class="mb-3">Consultas dinámicas</h3>
+<p class="text-muted">Además de estos reportes, cada tabla tiene búsqueda, filtros por rango, ordenamiento y exportación en su listado.</p>
+{% set modulos = reportes.values() | map(attribute='modulo') | unique | list %}
+<div class="row g-3">
+{% for m in modulos %}
+  <div class="col-md-4"><div class="card p-3 h-100"><h5>{{ m }}</h5>
+    <div class="list-group list-group-flush">
+    {% for k, r in reportes.items() if r.modulo == m %}
+      <a class="list-group-item list-group-item-action" href="{{ url_for('consultas.ejecutar', clave=k) }}">{{ r.titulo }}</a>
+    {% endfor %}
+    </div></div></div>
+{% endfor %}
+</div>
+{% endblock %}
